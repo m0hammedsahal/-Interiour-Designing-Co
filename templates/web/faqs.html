@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Interior Design Company</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animation for smooth toggling */
+        .toggle-height {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .toggle-height.active {
+            max-height: 500px; /* Adjust as needed */
+        }
+        /* Rotate the icon when active */
+        .rotate-45 {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200 min-h-screen">
+
+    <!-- FAQs Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 lg:px-20">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-10">Frequently Asked Questions</h2>
+
+            <!-- FAQ Item -->
+            <div class="space-y-6">
+                
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg hover:bg-purple-50 transition duration-300 cursor-pointer" onclick="toggleFaq(1)">
+                    <h3 class="text-xl font-semibold text-indigo-600 flex justify-between items-center">
+                        <span>What services do you offer?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </h3>
+                    <div id="faq-content-1" class="toggle-height mt-4 text-gray-600">
+                        <p>We offer a wide range of interior design services, including residential and commercial design, space planning, project management, and more. Our goal is to bring your vision to life.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg hover:bg-pink-50 transition duration-300 cursor-pointer" onclick="toggleFaq(2)">
+                    <h3 class="text-xl font-semibold text-pink-600 flex justify-between items-center">
+                        <span>How much does your service cost?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-600 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </h3>
+                    <div id="faq-content-2" class="toggle-height mt-4 text-gray-600">
+                        <p>Our pricing depends on the scope of the project. We offer customized packages based on your needs and budget. Contact us for a detailed quote.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300 cursor-pointer" onclick="toggleFaq(3)">
+                    <h3 class="text-xl font-semibold text-blue-600 flex justify-between items-center">
+                        <span>What is the project timeline?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </h3>
+                    <div id="faq-content-3" class="toggle-height mt-4 text-gray-600">
+                        <p>The project timeline varies depending on the size and complexity of the design. On average, a residential project may take between 6 to 12 weeks to complete.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg hover:bg-yellow-50 transition duration-300 cursor-pointer" onclick="toggleFaq(4)">
+                    <h3 class="text-xl font-semibold text-yellow-600 flex justify-between items-center">
+                        <span>Do you offer consultations?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </h3>
+                    <div id="faq-content-4" class="toggle-height mt-4 text-gray-600">
+                        <p>Yes, we offer initial design consultations to discuss your vision, goals, and budget. This helps us create a tailored plan for your space.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg hover:bg-green-50 transition duration-300 cursor-pointer" onclick="toggleFaq(5)">
+                    <h3 class="text-xl font-semibold text-green-600 flex justify-between items-center">
+                        <span>Can I be involved in the design process?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </h3>
+                    <div id="faq-content-5" class="toggle-height mt-4 text-gray-600">
+                        <p>Absolutely! We believe in collaboration and value your input throughout the design process. Your feedback helps us ensure the final design reflects your preferences.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-6 rounded-lg shadow-lg hover:bg-green-50 transition duration-300 cursor-pointer" onclick="toggleFaq(6)">
+                    <h3 class="text-xl font-semibold text-green-600 flex justify-between items-center">
+                        <span>Can I be involved in the design process?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </h3>
+                    <div id="faq-content-6" class="toggle-height mt-4 text-gray-600">
+                        <p>Absolutely! We believe in collaboration and value your input throughout the design process. Your feedback helps us ensure the final design reflects your preferences.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript to handle FAQ toggle functionality -->
+    <script>
+        function toggleFaq(faqId) {
+            const content = document.getElementById(`faq-content-${faqId}`);
+            const icon = content.previousElementSibling.querySelector('svg');
+            content.classList.toggle('active');
+            icon.classList.toggle('rotate-45');
+        }
+    </script>
+</body>
+</html>

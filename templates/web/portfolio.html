@@ -1,0 +1,79 @@
+{% extends 'base/web-base.html' %}
+{% load static %}
+{% block container %}
+{% include 'include/header.html' %}
+ 
+    
+    
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4">
+        <h2 class="text-3xl font-bold text-center mb-10">Our Portfolio</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/static/images/Modern_Living_Room.jpg" alt="Modern Living Room" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Modern Living Room</h3>
+                    <p class="mt-2">A contemporary living room designed with elegance and comfort in mind.</p>
+                    <a href="#more-details" class="text-blue-600 hover:underline mt-2 inline-block">View Details</a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/static/images/Chic_Office_Space.jpg" alt="Chic Office Space" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Chic Office Space</h3>
+                    <p class="mt-2">An office space designed to inspire creativity and productivity.</p>
+                    <a href="#more-details" class="text-blue-600 hover:underline mt-2 inline-block">View Details</a>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/static/images/Elegant_Kitchen.jpg" alt="Elegant Kitchen" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Elegant Kitchen</h3>
+                    <p class="mt-2">A modern kitchen that combines functionality with sleek design.</p>
+                    <a href="#more-details" class="text-blue-600 hover:underline mt-2 inline-block">View Details</a>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/static/images/Cozy_Bedroom.jpg" alt="Cozy Bedroom" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Cozy Bedroom</h3>
+                    <p class="mt-2">A tranquil bedroom designed for relaxation and comfort.</p>
+                    <a href="#more-details" class="text-blue-600 hover:underline mt-2 inline-block">View Details</a>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/static/images/Spacious_Dining.jpg" alt="Spacious Dining Room" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Spacious Dining Room</h3>
+                    <p class="mt-2">A dining area that invites gatherings and memorable meals.</p>
+                    <a href="#more-details" class="text-blue-600 hover:underline mt-2 inline-block">View Details</a>
+                </div>
+            </div>
+            <!-- Project 6 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/static/images/Trendy_Bathroom.jpg" alt="Trendy Bathroom" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Trendy Bathroom</h3>
+                    <p class="mt-2">A stylish bathroom that combines luxury with practicality.</p>
+                    <a href="#more-details" class="text-blue-600 hover:underline mt-2 inline-block">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    {% include 'include/get-contact.html' %}
+
+
+    <!-- Footer -->
+    {% include 'include/footer.html' %}
+
+
+{% endblock %}
+    

@@ -1,0 +1,9 @@
+.dropdown-content {
+    display: none;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover > a {
+    color: #f6b83b; /* Tailwind's blue-600 */
+}

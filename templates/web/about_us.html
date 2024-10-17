@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Team member card hover animation */
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Section heading animation */
+        .section-title {
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        /* Keyframes for fade-in-up animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button hover animation */
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            background-color: #4f46e5;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-50 via-blue-50 to-indigo-50 min-h-screen">
+
+    <!-- Header Section -->
+    <header class="bg-white py-12 shadow-md">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold text-indigo-600 animate-pulse">About Us</h1>
+            <p class="mt-4 text-gray-600">Learn more about our journey, mission, and the amazing team behind our company.</p>
+        </div>
+    </header>
+
+    <!-- Our Mission Section -->
+    <section class="container mx-auto px-6 py-12 text-center">
+        <h2 class="section-title text-4xl font-bold text-indigo-600 mb-8">Our Mission</h2>
+        <p class="text-gray-600 leading-relaxed text-lg mb-12">At <span class="font-bold text-indigo-600">Interior Design Co.</span>, our mission is to transform ordinary spaces into extraordinary experiences. We strive to blend modern design with functionality to create stunning environments that reflect the unique personality of each client.</p>
+        <a href="#" class="btn-hover inline-block px-8 py-3 text-white bg-indigo-500 rounded-full font-semibold transition duration-300">Contact Us</a>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 lg:px-12 text-center lg:text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Image of the company -->
+                <img src="/static/images/Modern building.jpeg" alt="Our Story" class="rounded-lg shadow-md h-[400px] w-full">
+
+                <!-- Story content -->
+                <div>
+                    <h2 class="section-title text-4xl font-bold text-indigo-600 mb-6">Our Story</h2>
+                    <p class="text-gray-600 leading-relaxed text-lg mb-4">Founded in 2015, <span class="font-bold text-indigo-600">Interior Design Co.</span> started as a small team of passionate designers who wanted to change how spaces were perceived. Over the years, we've grown into a full-service design firm with clients worldwide, all thanks to our commitment to creativity, quality, and customer satisfaction.</p>
+                    <p class="text-gray-600 leading-relaxed text-lg">Today, we continue to push the boundaries of modern design, embracing new technologies and trends while staying true to our core values of authenticity and innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section class="container mx-auto px-6 py-12 text-center">
+        <h2 class="section-title text-4xl font-bold text-indigo-600 mb-8">Meet the Team</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- Team Member 1 -->
+            {% for member in team_members %}
+            <div class="team-member bg-white rounded-lg shadow-md p-6 transition-transform duration-300">
+                <img src="{{ member.image.url }}" alt="{{ member.name }}" class="rounded-full mx-auto mb-4" style="width:150px; height:150px;">
+                <h3 class="text-2xl font-bold text-indigo-600">{{ member.name }}</h3>
+                <p class="text-gray-600">{{ member.role }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="bg-indigo-600 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title text-4xl font-bold mb-8">Our Values</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Value 1 -->
+                <div class="bg-white text-indigo-600 rounded-lg shadow-md p-6 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold">Innovation</h3>
+                    <p class="mt-4 text-gray-600">Constantly pushing the boundaries of design to stay ahead of trends and technology.</p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="bg-white text-indigo-600 rounded-lg shadow-md p-6 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold">Integrity</h3>
+                    <p class="mt-4 text-gray-600">Upholding honesty and transparency in all aspects of our work.</p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="bg-white text-indigo-600 rounded-lg shadow-md p-6 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold">Creativity</h3>
+                    <p class="mt-4 text-gray-600">Delivering unique designs that reflect the individuality of our clients.</p>
+                </div>
+
+                <!-- Value 4 -->
+                <div class="bg-white text-indigo-600 rounded-lg shadow-md p-6 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold">Excellence</h3>
+                    <p class="mt-4 text-gray-600">Striving for perfection in every project we take on.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto text-center text-white">
+            <p>&copy; 2024 Interior Design Co. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

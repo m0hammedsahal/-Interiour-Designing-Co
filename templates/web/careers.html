@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Card hover animation */
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Button hover animation */
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            background-color: #4f46e5;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-50 via-blue-50 to-pink-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="bg-white py-8 shadow-lg">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold text-indigo-600 animate-pulse">Join Our Team</h1>
+            <p class="mt-4 text-gray-500">We're looking for talented individuals to help us shape the future of interior design.</p>
+        </div>
+    </header>
+
+    <!-- Job Listings Section -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Job Listing 1 -->
+            <div class="job-card bg-white rounded-lg shadow-md p-6 transition-transform duration-300">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-2">Interior Designer</h2>
+                <p class="text-gray-600 mb-4">We're looking for a creative interior designer with a passion for modern spaces.</p>
+                <ul class="list-disc list-inside text-gray-600 mb-6">
+                    <li>3+ years of experience</li>
+                    <li>Strong portfolio</li>
+                    <li>Team collaboration skills</li>
+                </ul>
+                <a href="#" class="btn-hover inline-block px-6 py-2 text-white bg-indigo-500 rounded-full font-semibold transition duration-300">Apply Now</a>
+            </div>
+
+            <!-- Job Listing 2 -->
+            <div class="job-card bg-white rounded-lg shadow-md p-6 transition-transform duration-300">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-2">Project Manager</h2>
+                <p class="text-gray-600 mb-4">Lead our team of designers and ensure smooth project execution for high-profile clients.</p>
+                <ul class="list-disc list-inside text-gray-600 mb-6">
+                    <li>5+ years of experience</li>
+                    <li>Strong leadership skills</li>
+                    <li>Proficiency in project management tools</li>
+                </ul>
+                <a href="#" class="btn-hover inline-block px-6 py-2 text-white bg-indigo-500 rounded-full font-semibold transition duration-300">Apply Now</a>
+            </div>
+
+            <!-- Job Listing 3 -->
+            <div class="job-card bg-white rounded-lg shadow-md p-6 transition-transform duration-300">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-2">Marketing Specialist</h2>
+                <p class="text-gray-600 mb-4">Help us tell our brand story and reach new clients through innovative marketing strategies.</p>
+                <ul class="list-disc list-inside text-gray-600 mb-6">
+                    <li>2+ years of experience</li>
+                    <li>Expertise in digital marketing</li>
+                    <li>Creative mindset</li>
+                </ul>
+                <a href="#" class="btn-hover inline-block px-6 py-2 text-white bg-indigo-500 rounded-full font-semibold transition duration-300">Apply Now</a>
+            </div>
+
+            <!-- Job Listing 4 -->
+            <div class="job-card bg-white rounded-lg shadow-md p-6 transition-transform duration-300">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-2">Customer Support Specialist</h2>
+                <p class="text-gray-600 mb-4">Provide top-notch support and build lasting relationships with our clients.</p>
+                <ul class="list-disc list-inside text-gray-600 mb-6">
+                    <li>Excellent communication skills</li>
+                    <li>Empathetic and patient</li>
+                    <li>Problem-solving abilities</li>
+                </ul>
+                <a href="#" class="btn-hover inline-block px-6 py-2 text-white bg-indigo-500 rounded-full font-semibold transition duration-300">Apply Now</a>
+            </div>
+
+            <!-- Job Listing 5 -->
+            <div class="job-card bg-white rounded-lg shadow-md p-6 transition-transform duration-300">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-2">Graphic Designer</h2>
+                <p class="text-gray-600 mb-4">Create stunning visuals that communicate our brand and inspire our audience.</p>
+                <ul class="list-disc list-inside text-gray-600 mb-6">
+                    <li>Proficient in Adobe Suite</li>
+                    <li>Creative portfolio</li>
+                    <li>Attention to detail</li>
+                </ul>
+                <a href="#" class="btn-hover inline-block px-6 py-2 text-white bg-indigo-500 rounded-full font-semibold transition duration-300">Apply Now</a>
+            </div>
+
+            <!-- Job Listing 6 -->
+            <div class="job-card bg-white rounded-lg shadow-md p-6 transition-transform duration-300">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-2">Sales Executive</h2>
+                <p class="text-gray-600 mb-4">Drive sales and create meaningful relationships with clients in the design industry.</p>
+                <ul class="list-disc list-inside text-gray-600 mb-6">
+                    <li>Strong negotiation skills</li>
+                    <li>Client-focused approach</li>
+                    <li>Proven sales experience</li>
+                </ul>
+                <a href="#" class="btn-hover inline-block px-6 py-2 text-white bg-indigo-500 rounded-full font-semibold transition duration-300">Apply Now</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-indigo-600 py-8">
+        <div class="container mx-auto text-center text-white">
+            <p>&copy; 2024 Interior Design Careers. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

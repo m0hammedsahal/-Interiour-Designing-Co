@@ -1,0 +1,112 @@
+{% extends 'base/web-base.html' %}
+{% load static %}
+{% block container %}
+{% include 'include/header.html' %}
+ 
+    
+    
+<section class="min-h-screen bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100 p-8">
+    <div class="container mx-auto p-6 bg-white rounded-xl shadow-lg transition-transform transform hover:shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <!-- Product Image Gallery -->
+            <div>
+                <div class="relative">
+                    <div class="bg-gray-200 rounded-lg overflow-hidden mb-4">
+                        <img id="mainImage" src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="main-image object-contain"> <!-- Fixed size -->
+                    </div>
+                    <span class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs">{{ product.discount }} OFF</span>
+                </div>
+                
+                <!-- Thumbnail Images -->
+                <div class="grid grid-cols-5 gap-1">
+                    {% for image in product.images.all %}
+                        <img onclick="changeImage('{{ image.image.url }}')" src="{{ image.image.url }}" alt="{{ product.name }}" class="thumbnail object-cover rounded-lg cursor-pointer">
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Product Details -->
+            <div class="flex flex-col justify-center space-y-4">
+                <h1 class="text-4xl font-bold text-gray-800">{{ product.name }}</h1>
+                <p class="text-lg text-gray-600">{{ product.description }}</p>
+
+                <!-- Product Rating -->
+                <div class="flex items-center">
+                    {% with "01234" as stars %}
+                        {% for i in stars %}
+                            {% if forloop.counter0 < product.rating %}
+                                <!-- Filled star -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 .587l3.668 7.431 8.2 1.191-5.933 5.784 1.4 8.167L12 18.897l-7.335 3.863 1.4-8.167L.132 9.209l8.2-1.191z"/>
+                                </svg>
+                            {% else %}
+                                <!-- Empty star -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z" />
+                                </svg>
+                            {% endif %}
+                        {% endfor %}
+                        <span class="ml-2 text-yellow-500 text-xl">{{ product.rating }} / 5.0</span>
+                    {% endwith %}
+                </div>
+
+                <!-- Delivery Time -->
+                <div class="flex items-center justify-between">
+                    <p class="text-lg font-semibold text-gray-700">Delivery Time: <span class="text-purple-600">{{ product.time }}</span></p>
+                </div>
+
+                <!-- Category -->
+                <p class="text-lg font-bold text-purple-600">Category: {{ product.category }}</p>
+
+                <!-- Animated Button -->
+                <div>
+                    <a href="#" class="inline-block px-8 py-3 text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg hover:shadow-2xl hover:from-pink-600 hover:to-purple-600 transition-all transform hover:scale-105">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Information Section -->
+    <div class="mt-16 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Why Choose {{ product.name }}?</h2>
+            <p class="text-gray-600 leading-relaxed">
+                {{ product.name }} offers a perfect blend of style and functionality. Our expert designers ensure top-notch comfort while maintaining aesthetics. Whether it’s for commercial or residential use, this product adapts perfectly to your needs.
+            </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Customer Reviews</h2>
+            <p class="text-gray-600 leading-relaxed">
+                Our customers love the premium quality and durability of {{ product.name }}. The modern design with a practical touch has made it a favorite among businesses and homeowners alike.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .thumbnail {
+        width: 100px; /* Fixed width for thumbnails */
+        height: 40px; /* Fixed height for thumbnails */
+        transition: transform 0.2s;
+    }
+    .thumbnail:hover {
+        transform: scale(1.05);
+    }
+    .main-image {
+        width: 100%; /* Fixed width for the main image */
+        height: 400px; /* Fixed height for the main image */
+    }
+</style>
+
+<script>
+    function changeImage(src) {
+        document.getElementById('mainImage').src = src;
+    }
+</script>
+
+
+{% endblock %}
+   

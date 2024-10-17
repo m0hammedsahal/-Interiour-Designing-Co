@@ -1,0 +1,287 @@
+{% extends 'base/web-base.html' %}
+{% load static %}
+{% block container %}
+{% include 'include/header.html' %}
+ 
+    
+    
+
+    <!-- Hero Section -->
+    <header class="relative h-screen overflow-hidden">
+        {% for video in video %}
+            <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
+                <source src="{{ video.video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% endfor %}
+
+        <!-- <iframe class="absolute inset-0 w-full h-full object-cover" src="https://www.youtube.com/embed/_hhcA0-8Dt8?autoplay=1&mute=1&loop=1&playlist=_hhcA0-8Dt8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <!-- <img src="{% static '/images/over.jpeg' %}" alt="Overlay" class="absolute inset-0 w-[100%] h-[100%] object-cover mix-blend-multiply" /> -->
+        <div class="typewriter hidden md:flex items-center justify-center h-full relative z-10">
+            <h1 class="text-5xl font-bold" style="color: #BBA085;">Transform Your Space</h1>
+        </div>
+    </header>
+
+
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for service in services %}
+                <a class="block" href="{% url 'web:service_detail' id=service.id %}">
+                    <div class="bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 h-full">
+                        <img src="{{ service.image.url }}" alt="{{ service.name }}" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-4">{{ service.name }}</h3>
+                        <p class="text-gray-600">{{ service.description }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    
+
+    <section id="products" class="py-20 px-4 bg-gradient-to-b from-blue-100 via-purple-100 to-pink-100">
+        <h2 class="text-4xl font-bold text-center mb-12 text-purple-800">Our Portfolio</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            {% for product in products %}
+            <a class="block" href="{% url 'web:single_product_view' id=product.id %}">
+                <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl h-full">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="w-full h-full object-cover transition-transform transform group-hover:scale-110">
+                        <span class="absolute top-0 left-0 bg-purple-600 text-white text-xs px-2 py-1 rounded-br-lg">{{ product.discount }}% OFF</span>
+                    </div>
+                    <div class="p-6 grid-rows-4 bg-white">
+                        <h3 class="text-lg font-bold text-gray-800 transition-colors group-hover:text-purple-600">{{ product.name }}</h3>
+                        <p class="text-sm text-gray-500 mb-4">{{ product.description }}</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-yellow-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 .587l3.668 7.431 8.2 1.191-5.933 5.784 1.4 8.167L12 18.897l-7.335 3.863 1.4-8.167L.132 9.209l8.2-1.191z"/>
+                                </svg>
+                                <span class="ml-1">{{ product.rating }} / 5.0</span>
+                            </div>
+                            <p class="text-sm font-semibold text-gray-700">Delivery: {{ product.time }}</p>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm font-bold text-gray-600"><span class="text-purple-600">Category:</span> {{ product.category }}</p>
+                        </div>
+                    </div>
+                    <!-- Hover effect for more product details -->
+                    <div class="absolute inset-0 bg-purple-600 bg-opacity-70 text-white p-6 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold">{{ product.name }}</h3>
+                        <p class="mb-4">{{ product.description }}</p>
+                        <p class="text-lg font-semibold">{{ product.discount }} Discount</p>
+                        <p>Delivery Time: {{ product.time }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+    
+    
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center mb-10">Our Portfolio</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            {% for product in categories %}
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="{{ product.image.url }}" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold">{{ product.name }}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="bg-gradient-to-r from-purple-600 to-blue-500 py-12 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-white mb-4 animate__animated animate__fadeInDown">Discover Your Interior Design Style</h2>
+            <p class="text-lg text-white mb-8 animate__animated animate__fadeInUp">Take our fun quiz to find out which design style fits your personality best!</p>
+            <a href="/quiz" class="inline-block bg-white text-purple-600 py-3 px-8 rounded-full text-lg font-semibold hover:bg-purple-500 hover:text-white transition-all duration-300 shadow-lg transform hover:scale-110 animate__animated animate__pulse">
+                Start the Quiz
+            </a>
+        </div>
+    </section>
+    
+
+    <!-- Testimonials Section -->
+    <section class="swiper mySwiper my-32">
+        <div class="swiper-wrapper py-11 px-96">
+            {% for testimonial in testimonials %}
+                <blockquote class="swiper-slide relative bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
+                    <p class="italic">{{ testimonial.testimonial_text }}</p>
+                    <footer class="mt-4 font-semibold">— {{ testimonial.client_name }}</footer>
+                    <p>{{ testimonial.client_role }}</p>
+                    <p class="text-yellow-500">{{ testimonial.created_at }}</p>
+                </blockquote>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{% url 'web:testimonials' %}" class="inline-block px-6 py-3 text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                View All Testimonials
+            </a>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next custom-swiper-button transform transition-transform duration-300 hover:scale-125"></div>
+        <div class="swiper-button-prev custom-swiper-button transform transition-transform duration-300 hover:scale-125"></div>
+      </section>
+    </section>
+
+
+    <section id="testimonials" class="py-20 px-10 bg-gradient-to-r from-green-100 to-blue-100">
+        <h2 class="text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
+        <div class="flex flex-col items-center">
+            {% for testimonial in testimonials %}
+            {% if testimonial.id == 5 %}
+                <blockquote class="bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
+                    <p class="italic">{{ testimonial.testimonial_text }}</p>
+                    <footer class="mt-4 font-semibold">— {{ testimonial.client_name }}</footer>
+                    <p>{{ testimonial.client_role }}</p>
+                    <p class="text-yellow-500">{{ testimonial.created_at }}</p>
+                </blockquote>
+            {% endif %}
+            {% endfor %}
+            <div class="text-center mt-5">
+                <a href="{% url 'web:testimonials' %}" class="inline-block px-6 py-3 text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                    View All Testimonials
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+<style>
+    .typewriter h1 {
+    /* font-family: 'Courier', monospace; */
+    overflow: hidden; /* Ensures the text doesn't show outside of its container */
+    border-right: 0.15em solid black; /* Cursor effect */
+    white-space: nowrap; /* Keeps the text on a single line */
+    margin: 0 auto; /* Centers the text */
+    letter-spacing: 0.15em; /* Space between letters */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    /* Typing effect */
+    @keyframes typing {
+    from { width: 0; }
+    to { width: 50%; }
+    }
+
+    /* Blinking caret effect */
+    @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+    }
+
+
+    .video-container {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Set an appropriate height */
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the container */
+        }
+
+
+        .custom-swiper-button {
+            color: #b3865a; /* Custom color */
+            width: 22px; /* Smaller width */
+            height: 22px; /* Smaller height */
+            border-radius: 50%; /* Rounded buttons */
+            background-color: rgba(194, 187, 187, 0.3); /* Slightly transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .custom-swiper-button:hover {
+            background-color: #b3865a; /* Change background on hover */
+            color: #ffffff; /* Change icon color on hover */
+        }
+
+        .custom-swiper-button::after {
+            font-size: 14px; /* Smaller icon */
+        }
+
+        /* Adjust button position if needed */
+        .swiper-button-next {
+            right: 10px; /* Adjust position */
+        }
+
+        .swiper-button-prev {
+            left: 10px; /* Adjust position */
+        }
+
+        .swiper-pagination {
+            top: 398px !important; /* Move the pagination slightly down */
+        }
+
+        .swiper-slide img {
+        }
+
+
+</style>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+   var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 390,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    slidesPerView: 1,
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+      },
+      1024: {
+        slidesPerView: 1,
+      },
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+
+</script>
+
+    <!-- Contact Section -->
+    {% include 'include/get-contact.html' %}
+
+
+    <!-- Footer -->
+    {% include 'include/footer.html' %}
+
+
+{% endblock %}

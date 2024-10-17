@@ -1,0 +1,121 @@
+
+{% load static %}
+<header class="head shadow-md fixed w-full z-20 bg-black bg-opacity-30">
+    <nav class="container mx-auto flex justify-between items-center p-5" style="color: #b3865a;">
+        <h1 class="text-3xl font-bold">Zain Interior</h1>
+        <div class="flex items-center md:hidden">
+            <button id="mobile-menu-button" class="text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <ul class="hidden md:flex space-x-6">
+            <li class="dropdown relative">
+                <a href="{% url 'web:services' %}" class="hover:text-blue-600 text-xl">Services</a>
+                <div class="dropdown-content absolute left-0 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                    <div class="p-2">
+                        <h3 class="font-extrabold mb-2">Our Services</h3>
+                        <ul>
+                            {% for service in services %}
+                                <a class="block" href="{% url 'web:service_detail' id=service.id %}">
+                                    <h3 class="font-semibold block p-2 hover:bg-gray-200 hover:bg-opacity-30">{{ service.name }}</h3>
+                                </a>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown relative">
+                <a href="{% url 'web:services' %}" class="hover:text-blue-600 text-xl">Categories</a>
+                <div class="dropdown-content absolute left-0 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                    <div class="p-2">
+                        <h3 class="font-extrabold mb-2">Our Categories</h3>
+                        <ul>
+                            {% for service in categories %}
+                                <a class="block" href="{% url 'web:service_detail' id=service.id %}">
+                                    <h3 class="font-semibold block p-2 hover:bg-gray-200 hover:bg-opacity-30">{{ service.name }}</h3>
+                                </a>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown relative">
+                <a href="{% url 'web:gallery' %}" class="hover:text-blue-600 text-xl">Gallery</a>
+                <div class="dropdown-content absolute left-0 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                    <div class="p-2">
+                        <h3 class="font-extarb">Gallery</h3>
+                        <ul>
+                            <li><a href="#project1" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Project 1</a></li>
+                            <li><a href="#project2" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Project 2</a></li>
+                            <li><a href="#project3" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Project 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown relative">
+                <a href="{% url 'web:testimonials' %}" class="hover:text-blue-600 text-xl">Testimonials</a>
+                <div class="dropdown-content absolute left-0 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                    <div class="p-2">
+                        <h3 class="font-extarb">Testimonials</h3>
+                        <ul>
+                            <li><a href="#test1" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Testimonial 1</a></li>
+                            <li><a href="#test2" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Testimonial 2</a></li>
+                            <li><a href="#test3" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Testimonial 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown relative">
+                <a href="{% url 'web:contact' %}" class="hover:text-blue-600 text-xl">Contact</a>
+                <div class="dropdown-content absolute right-5 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                    <div class="p-2">
+                        <h3 class="font-extarb">Contact</h3>
+                        <ul>
+                            <li><a href="#instagram" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Instagram</a></li>
+                            <li><a href="#facebook" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Facebook</a></li>
+                            <li><a href="#linkedin" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- Repeat for other items like Categories, Gallery, Testimonials, and Contact -->
+        </ul>
+    </nav>
+    <div id="mobile-menu" class="absolute top-16 left-0 w-full bg-white bg-opacity-20 hidden md:hidden shadow-lg z-30">
+        <ul class="flex flex-col space-y-2 p-4">
+            <li>
+                <a href="{% url 'web:services' %}" class="block text-xl hover:text-blue-600">Services</a>
+            </li>
+            <li>
+                <a href="{% url 'web:services' %}" class="block text-xl hover:text-blue-600">Categories</a>
+            </li>
+            <li>
+                <a href="{% url 'web:gallery' %}" class="block text-xl hover:text-blue-600">Gallery</a>
+            </li>
+            <li>
+                <a href="{% url 'web:testimonials' %}" class="block text-xl hover:text-blue-600">Testimonials</a>
+            </li>
+            <li>
+                <a href="{% url 'web:contact' %}" class="block text-xl hover:text-blue-600">Contact</a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+
+<style>
+    .head {
+        
+    }
+</style>
+<!-- JavaScript for mobile menu toggle -->
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>

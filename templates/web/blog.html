@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth card hover animation */
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        /* Image hover animation */
+        .blog-image:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* Button hover animation */
+        .btn-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-50 via-pink-50 to-purple-100 min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-white py-8 shadow-lg">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold text-indigo-600 animate-pulse">Our Blog</h1>
+            <p class="mt-4 text-gray-500">Discover the latest trends, insights, and updates in interior design.</p>
+        </div>
+    </header>
+
+    <!-- Blog Grid Section -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog Post 1 -->
+            <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                <div class="overflow-hidden">
+                    <img src="https://source.unsplash.com/600x400/?interior,design" alt="Interior Design" class="w-full h-64 object-cover blog-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">5 Latest Trends in Interior Design</h3>
+                    <p class="text-gray-500 mb-6">Explore the latest styles that are shaping modern interior spaces in 2024.</p>
+                    <a href="#" class="btn-hover inline-block text-indigo-600 font-semibold hover:text-indigo-800">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                <div class="overflow-hidden">
+                    <img src="https://source.unsplash.com/600x400/?architecture,home" alt="Architecture" class="w-full h-64 object-cover blog-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">How to Choose the Perfect Lighting for Your Home</h3>
+                    <p class="text-gray-500 mb-6">Lighting is key in setting the mood of your home. Here’s how to make the right choice.</p>
+                    <a href="#" class="btn-hover inline-block text-indigo-600 font-semibold hover:text-indigo-800">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                <div class="overflow-hidden">
+                    <img src="https://source.unsplash.com/600x400/?furniture,design" alt="Furniture Design" class="w-full h-64 object-cover blog-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Top 10 Furniture Pieces for Modern Homes</h3>
+                    <p class="text-gray-500 mb-6">Discover furniture that combines both functionality and aesthetics for your modern home.</p>
+                    <a href="#" class="btn-hover inline-block text-indigo-600 font-semibold hover:text-indigo-800">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 4 -->
+            <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                <div class="overflow-hidden">
+                    <img src="https://source.unsplash.com/600x400/?color,palette" alt="Color Palette" class="w-full h-64 object-cover blog-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">How to Choose the Right Color Palette for Your Space</h3>
+                    <p class="text-gray-500 mb-6">Color can completely transform a room. Here are tips to pick the perfect palette.</p>
+                    <a href="#" class="btn-hover inline-block text-indigo-600 font-semibold hover:text-indigo-800">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 5 -->
+            <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                <div class="overflow-hidden">
+                    <img src="https://source.unsplash.com/600x400/?minimalism,design" alt="Minimalism" class="w-full h-64 object-cover blog-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Embrace Minimalism: Less is More</h3>
+                    <p class="text-gray-500 mb-6">The minimalist design approach is taking the world by storm. Learn how to adopt it in your home.</p>
+                    <a href="#" class="btn-hover inline-block text-indigo-600 font-semibold hover:text-indigo-800">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 6 -->
+            <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                <div class="overflow-hidden">
+                    <img src="https://source.unsplash.com/600x400/?outdoor,patio" alt="Outdoor Patio" class="w-full h-64 object-cover blog-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Designing a Dream Outdoor Patio</h3>
+                    <p class="text-gray-500 mb-6">Your outdoor space deserves just as much attention. Learn how to create a cozy patio.</p>
+                    <a href="#" class="btn-hover inline-block text-indigo-600 font-semibold hover:text-indigo-800">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-indigo-600 py-8">
+        <div class="container mx-auto text-center text-white">
+            <p>&copy; 2024 Interior Design Blog. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

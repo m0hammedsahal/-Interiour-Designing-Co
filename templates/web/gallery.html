@@ -1,0 +1,222 @@
+{% extends 'base/web-base.html' %}
+{% load static %}
+{% block container %}
+
+
+<!-- Main Layout -->
+<section id="main-content" class="py-8 px-5 bg-gray-50">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+
+
+        <!-- Filter Toggle Button (only visible on small screens) -->
+        <button id="filterToggleBtn" class="flex px-1 py-0.5 bg-black bg-opacity-40 text-white rounded-md shadow-md hover:bg-purple-800 fixed top-16 left-4 z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" style="transform: rotate(90deg);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4 4 4-4"/>
+            </svg>
+            
+            Show Filters
+        </button>
+        <!-- Filter Section (Left Sidebar) -->
+         
+        <aside id="filters" class="col-span-1 bg-white shadow-lg rounded-lg p-4">
+            <form method="GET" action="">
+                <h2 class="text-xl font-semibold text-purple-800 mb-4">Filter Products</h2>
+                
+                <!-- Category Filter -->
+                <div class="mb-6">
+                    <label for="categoryFilter" class="block text-sm font-medium text-gray-700">Category</label>
+                    <select id="categoryFilter" name="category" class="w-full py-3 px-4 rounded-md bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300">
+                        <option value="">All Categories</option>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}" {% if category.id|stringformat:"s" == request.GET.category %}selected{% endif %}>{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Price Range Filter -->
+                <div class="mb-6">
+                    <label for="priceRange" class="block text-sm font-medium text-gray-700">Discount Range</label>
+                    <div class="flex items-center">
+                        <span id="minPrice" class="text-sm text-gray-600">10 %</span>
+                        <input type="range" name="min_price" min="10" max="100" step="10" value="{{ request.GET.min_price|default:'0' }}" class="w-full h-3 rounded-full bg-purple-400 mx-2 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300" id="priceRangeMin">
+                    </div>
+                    <div class="flex items-center">
+                        <span id="maxPrice" class="text-sm text-gray-600">100 %</span>
+                        <input type="range" name="max_price" min="10" max="100" step="10" value="{{ request.GET.max_price|default:'1000' }}" class="w-full h-3 rounded-full bg-purple-400 mx-2 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300" id="priceRangeMax">
+                    </div>
+                </div>
+
+                <!-- Filter Button -->
+                <button type="submit" class="py-3 px-4 bg-purple-600 text-white w-full rounded-md shadow-lg hover:bg-purple-800 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-500">
+                    Apply Filters
+                </button>
+            </form>
+        </aside>
+        
+        <!-- Main Content Section -->
+        <div id="main" class="col-span-4">
+            <!-- Search Bar Section (small search bar) -->
+            <div class="mb-6">
+                <form method="GET" action="" class="flex items-center bg-white shadow-md rounded-md overflow-hidden">
+                    <input 
+                        type="text" 
+                        name="query" 
+                        placeholder="Search..." 
+                        class="w-full p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        value="{{ request.GET.query|default:'' }}" 
+                    />
+                    <button type="submit" class="bg-purple-600 text-white px-3 py-2 hover:bg-purple-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 4a6 6 0 100 12 6 6 0 000-12zm14 14l-4-4"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Products Grid Section -->
+            <section id="products" class="bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-2xl font-bold text-center mb-6 text-purple-800">Our Gallery</h2>
+                <div id="parent" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    {% for product in products %}
+                    <a class="block" href="{% url 'web:single_product_view' id=product.id %}">
+                        <div class="group relative bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl h-full">
+                            <div class="relative overflow-hidden h-48">
+                                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="w-full h-full object-cover transition-transform transform group-hover:scale-110">
+                                <span class="absolute top-0 left-0 bg-purple-600 text-white text-xs px-2 py-1 rounded-br-lg">{{ product.discount }}% OFF</span>
+                            </div>
+                            <div class="p-4 bg-white">
+                                <h3 class="text-lg font-bold text-gray-800 transition-colors group-hover:text-purple-600">{{ product.name }}</h3>
+                                <p class="text-sm text-gray-500 mb-4">{{ product.description }}</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center text-yellow-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 .587l3.668 7.431 8.2 1.191-5.933 5.784 1.4 8.167L12 18.897l-7.335 3.863 1.4-8.167L.132 9.209l8.2-1.191z"/>
+                                        </svg>
+                                        <span class="ml-1">{{ product.rating }} / 5.0</span>
+                                    </div>
+                                    <p class="text-sm font-semibold text-gray-700">Delivery: {{ product.time }}</p>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-sm font-bold text-gray-600"><span class="text-purple-600">Category:</span> {{ product.category }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                <!-- Pagination Controls -->
+                <div class="mt-8">
+                    <div class="mt-8 flex justify-center">
+                        {% if is_paginated %}
+                            <nav class="pagination">
+                                <ul class="flex list-none gap-2 items-center pb-2">
+                                    
+                                    {% if page_obj.has_previous %}
+                                        <li>
+                                            <a href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ page_obj.previous_page_number }}" class="px-3 py-1 border rounded bg-gray-200 hover:bg-gray-300">Previous</a>
+                                        </li>
+                                    {% else %}
+                                        
+                                    {% endif %}
+                                    
+                                    {% for page_num in page_obj.paginator.page_range %}
+                                        {% if page_num == page_obj.number %}
+                                            <li>
+                                                <span class="px-3 py-1 border rounded bg-blue-500 text-white">{{ page_num }}</span>
+                                            </li>
+                                        {% else %}
+                                            <li>
+                                                <a href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ page_num }}" class="px-3 py-1 border rounded bg-gray-200 hover:bg-gray-300">{{ page_num }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    
+                                    <li class="px-3 py-1 border rounded bg-gray-300 text-gray-700">
+                                        {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                                    </li>
+                    
+                                    {% if page_obj.has_next %}
+                                        <li>
+                                            <a href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ page_obj.next_page_number }}" class="px-3 py-1 border rounded bg-gray-200 hover:bg-gray-300">Next</a>
+                                        </li>
+                                    {% else %}
+                                       
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+
+<!-- Styles and Scripts -->
+<style>
+    /* Initially hide the filter section on small screens */
+    #filters {
+        display: none;
+    }
+
+    
+    
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterToggleBtn = document.getElementById('filterToggleBtn');
+        const filters = document.getElementById('filters');
+        const main = document.getElementById('main');
+        const parent = document.getElementById('parent');
+
+        filterToggleBtn.addEventListener('click', function () {
+            if (filters.style.display === 'block') {
+                filters.style.display = 'none';
+                filterToggleBtn.textContent = 'Show Filters';
+                
+                main.classList.add('col-span-4');
+                parent.classList.add('md:grid-cols-4');
+
+                main.classList.remove('col-span-3');
+                parent.classList.remove('md:grid-cols-3');
+                
+
+            } else {
+                filters.style.display = 'block';
+                filterToggleBtn.textContent = 'Hide';
+                
+                main.classList.add('col-span-3');
+                parent.classList.add('md:grid-cols-3');
+
+                main.classList.remove('col-span-4');
+                parent.classList.remove('md:grid-cols-4');
+            }
+        });
+    });
+
+    // Update the displayed price range
+    function updatePrice() {
+        const minPrice = document.getElementById('priceRangeMin').value;
+        const maxPrice = document.getElementById('priceRangeMax').value;
+        
+        document.getElementById('minPrice').innerText = `%${minPrice}`;
+        document.getElementById('maxPrice').innerText = `%${maxPrice}`;
+    }
+
+    // Attach the updatePrice function to the 'input' event of both range inputs
+    document.getElementById('priceRangeMin').addEventListener('input', updatePrice);
+    document.getElementById('priceRangeMax').addEventListener('input', updatePrice);
+
+    // Initial call to display the correct values on page load
+    updatePrice();
+</script>
+
+<!-- Footer -->
+{% include 'include/footer.html' %}
+
+{% endblock %}
+
