@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Company</title>
+    <link href="./style.css" rel="stylesheet">
+    <link class="rounded-full" rel="icon" href="./images/zainlogo.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+</head>
+<body class="bg-gray-50 ">
+
+<section class="min-h-screen bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100 p-8">
+    <div class="container mx-auto p-6 bg-white rounded-xl shadow-lg transition-transform transform hover:shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <!-- Product Image Gallery -->
+            <div>
+                <div class="relative">
+                    <div class="bg-gray-200 rounded-lg overflow-hidden mb-4">
+                        <img id="mainImage" src="./images/aluminiumfab.png" alt="Product Name" class="main-image object-contain">
+                    </div>
+                    <span class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs">50% OFF</span>
+                </div>
+                
+                <!-- Thumbnail Images -->
+                <div class="grid grid-cols-5 gap-1">
+                    <img onmouseover="changeImage('./images/alumunium-work-1000x1000.png')" src="./images/alumunium-work-1000x1000.png" alt="Product Name" class="thumbnail object-cover rounded-lg cursor-pointer">
+                    <img onmouseover="changeImage('./images/aluminium1.png')" src="./images/aluminium1.png" alt="Product Name" class="thumbnail object-cover rounded-lg cursor-pointer">
+                    <img onmouseover="changeImage('./images/aluminium2.png')" src="./images/aluminium2.png" alt="Product Name" class="thumbnail object-cover rounded-lg cursor-pointer">
+                    <img onmouseover="changeImage('./images/aluminium4.png')" src="./images/aluminium4.png" alt="Product Name" class="thumbnail object-cover rounded-lg cursor-pointer">
+                    <img onmouseover="changeImage('./images/aluminium3.png')" src="./images/aluminium3.png" alt="Product Name" class="thumbnail object-cover rounded-lg cursor-pointer">
+                </div>
+            </div>
+            
+            <!-- Product Details -->
+            <div class="flex flex-col justify-center space-y-4">
+                <h1 class="text-4xl font-bold text-gray-800">Aluminium Fabrication</h1>
+                <p class="text-lg text-gray-600">Custom aluminium solutions for various applications including windows, doors, and more.</p>
+
+                <!-- Product Rating -->
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.668 7.431 8.2 1.191-5.933 5.784 1.4 8.167L12 18.897l-7.335 3.863 1.4-8.167L.132 9.209l8.2-1.191z"/>
+                    </svg>
+                    <span class="ml-2 text-yellow-500 text-xl">4.5 / 5.0</span>
+                </div>
+
+                <!-- Delivery Time -->
+                <div class="flex items-center justify-between">
+                    <p class="text-lg font-semibold text-gray-700">Delivery Time: <span class="text-purple-600">5-7 Days</span></p>
+                </div>
+
+                <!-- Category -->
+                <p class="text-lg font-bold text-purple-600">Category: Living Room Furniture</p>
+
+                <!-- Animated Button -->
+                <div>
+                    <a href="#" class="inline-block px-8 py-3 text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg hover:shadow-2xl hover:from-pink-600 hover:to-purple-600 transition-all transform hover:scale-105">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Information Section -->
+    <div class="mt-16 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Why Choose Our Stylish Sofa?</h2>
+            <p class="text-gray-600 leading-relaxed">
+                Our stylish sofa set offers a perfect blend of modern design and exceptional comfort. Designed by experts, it's ideal for both commercial and residential spaces.
+            </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Customer Reviews</h2>
+            <p class="text-gray-600 leading-relaxed">
+                Our customers appreciate the high quality, comfort, and durability. This modern, practical design is a favorite among homeowners and businesses alike.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .thumbnail {
+        width: 100px;
+        height: 40px;
+        transition: transform 0.2s;
+    }
+    .thumbnail:hover {
+        transform: scale(1.05);
+    }
+    .main-image {
+        width: 100%;
+        height: 400px;
+    }
+</style>
+
+<script>
+    function changeImage(src) {
+        document.getElementById('mainImage').src = src;
+    }
+</script>
+
+<script src="./script.js"></script>
+</body>
+</html>

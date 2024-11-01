@@ -112,7 +112,7 @@
     
 
     <!-- Testimonials Section -->
-    <section class="swiper mySwiper my-32">
+    <!-- <section class="swiper mySwiper my-32">
         <div class="swiper-wrapper py-11 px-96">
             {% for testimonial in testimonials %}
                 <blockquote class="swiper-slide relative bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
@@ -133,8 +133,28 @@
         <div class="swiper-button-next custom-swiper-button transform transition-transform duration-300 hover:scale-125"></div>
         <div class="swiper-button-prev custom-swiper-button transform transition-transform duration-300 hover:scale-125"></div>
       </section>
-    </section>
+    </section> -->
 
+
+    <section>
+        <!-- Swiper Slider HTML -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% for testimonial in testimonials %}
+                <blockquote class="swiper-slide relative bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
+                    <p class="italic">{{ testimonial.testimonial_text }}</p>
+                    <footer class="mt-4 font-semibold">— {{ testimonial.client_name }}</footer>
+                    <p>{{ testimonial.client_role }}</p>
+                    <p class="text-yellow-500">{{ testimonial.created_at }}</p>
+                </blockquote>
+                {% endfor %}
+            </div>
+            <!-- Pagination and Navigation if needed -->
+            <!-- <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+        </div>
+    </section>
 
     <section id="testimonials" class="py-20 px-10 bg-gradient-to-r from-green-100 to-blue-100">
         <h2 class="text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
@@ -157,7 +177,10 @@
         </div>
     </section>
 
-    
+    <form action="">
+        <input type="text" placeholder="Enter your name">
+        <textarea placeholder="Enter your message"></textarea>
+    </form>
 
 
 <style>
@@ -199,43 +222,52 @@
         }
 
 
-        .custom-swiper-button {
-            color: #b3865a; /* Custom color */
-            width: 22px; /* Smaller width */
-            height: 22px; /* Smaller height */
-            border-radius: 50%; /* Rounded buttons */
-            background-color: rgba(194, 187, 187, 0.3); /* Slightly transparent background */
+        /* .custom-swiper-button {
+            color: #b3865a; 
+            width: 22px; 
+            height: 22px;
+            border-radius: 50%; 
+            background-color: rgba(194, 187, 187, 0.3);
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
         .custom-swiper-button:hover {
-            background-color: #b3865a; /* Change background on hover */
-            color: #ffffff; /* Change icon color on hover */
+            background-color: #b3865a;
+            color: #ffffff; 
         }
 
         .custom-swiper-button::after {
-            font-size: 14px; /* Smaller icon */
+            font-size: 14px;
         }
 
-        /* Adjust button position if needed */
+        
         .swiper-button-next {
-            right: 10px; /* Adjust position */
+            right: 10px;
         }
 
         .swiper-button-prev {
-            left: 10px; /* Adjust position */
+            left: 10px;
         }
 
         .swiper-pagination {
-            top: 398px !important; /* Move the pagination slightly down */
+            top: 398px !important; 
         }
 
         .swiper-slide img {
+        } */
+        
+        
+        .mySwiper {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px 0;
         }
 
-
+        .swiper-slide {
+       
+        }
 </style>
 
 <!-- Swiper JS -->
@@ -244,34 +276,56 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const swiper = new Swiper('.mySwiper', {
+            slidesPerView: 1,       // Show one slide at a time
+            spaceBetween: 30,       // Space on the left and right of each slide
+            centeredSlides: true,
+            loop: true,             // Infinite loop
+            autoplay: {
+              delay: 3000,          // Slide delay in ms (3000ms = 3 seconds)
+              disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          });
+        });
+      </script>
 <script>
-   var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 390,
-    centeredSlides: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    slidesPerView: 1,
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-      },
-      1024: {
-        slidesPerView: 1,
-      },
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+//    var swiper = new Swiper(".mySwiper", {
+//     spaceBetween: 390,
+//     centeredSlides: true,
+//     autoplay: {
+//       delay: 3000,
+//       disableOnInteraction: false,
+//     },
+//     loop: true,
+//     slidesPerView: 1,
+//     breakpoints: {
+//       640: {
+//         slidesPerView: 1,
+//       },
+//       1024: {
+//         slidesPerView: 1,
+//       },
+//     },
+//     pagination: {
+//       el: ".swiper-pagination",
+//       clickable: true,
+//     },
+//     navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev",
+//     },
+//   });
 
 
 </script>

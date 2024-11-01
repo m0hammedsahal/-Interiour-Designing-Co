@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Company</title>
+    <link class="rounded-full" rel="icon" href="./images/zainlogo.png" type="image/x-icon">
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+</head>
+<body class="bg-gray-50 ">
+    
+    
+
+    <header class="head shadow-md fixed w-full z-20 bg-black bg-opacity-30">
+        <nav class="container mx-auto flex justify-between items-center p-5" style="color: #b3865a;">
+            <a href="index.html"><h1 class="md:text-3xl text-xl font-bold">Zain Interior</h1></a>
+            <div class="flex items-center md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="hidden md:flex space-x-6">
+                <li class="dropdown relative">
+                    <a href="services.html" class="hover:text-blue-600 text-xl">Services</a>
+                    <div class="dropdown-content absolute left-0 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                        <div class="p-2">
+                            <h3 class="font-extrabold mb-2">Our Services</h3>
+                            <ul>
+                                    <a class="block" href="service_detail.html">
+                                        <h3 class="font-semibold block p-2 hover:bg-gray-200 hover:bg-opacity-30">service.name</h3>
+                                    </a>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown relative">
+                    <a href="gallery.html" class="hover:text-blue-600 text-xl">Gallery</a>
+                    <div class="dropdown-content absolute left-0 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                        <div class="p-2">
+                            <h3 class="font-extarb">Gallery</h3>
+                            <ul>
+                                <li><a href="#project1" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Project 1</a></li>
+                                <li><a href="#project2" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Project 2</a></li>
+                                <li><a href="#project3" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Project 3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown relative">
+                    <a href="about_us.html" class="hover:text-blue-600 text-xl">About</a>
+                    <div class="dropdown-content absolute left-0 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                        <div class="p-2">
+                            <h3 class="font-extarb">Testimonials</h3>
+                            <ul>
+                                <li><a href="#test1" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Testimonial 1</a></li>
+                                <li><a href="#test2" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Testimonial 2</a></li>
+                                <li><a href="#test3" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Testimonial 3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown relative">
+                    <a href="contact.html" class="hover:text-blue-600 text-xl">Contact</a>
+                    <div class="dropdown-content absolute right-5 mt-2 w-48 bg-white bg-opacity-5 rounded-md shadow-lg z-20">
+                        <div class="p-2">
+                            <h3 class="font-extarb">Contact</h3>
+                            <ul>
+                                <li><a href="#instagram" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Instagram</a></li>
+                                <li><a href="#facebook" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">Facebook</a></li>
+                                <li><a href="#linkedin" class="block p-2 hover:bg-gray-200 hover:bg-opacity-30">LinkedIn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat for other items like Categories, Gallery, Testimonials, and Contact -->
+            </ul>
+        </nav>
+        <div id="mobile-menu" class="absolute top-16 left-0 w-full bg-white bg-opacity-20 hidden md:hidden shadow-lg z-30">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li>
+                    <a href="services.html" class="block text-xl hover:text-blue-600">Services</a>
+                </li>
+                <li>
+                    <a href="gallery.html" class="block text-xl hover:text-blue-600">Gallery</a>
+                </li>
+                <li>
+                    <a href="about_us.html" class="block text-xl hover:text-blue-600">About</a>
+                </li>
+                <li>
+                    <a href="contact.html" class="block text-xl hover:text-blue-600">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    
+    
+    <style>
+        .head {
+            
+        }
+    </style>
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    
+    <!-- Hero Section -->
+    <header class="relative h-screen overflow-hidden">
+        
+            <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
+                <source src="./images/videoint.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+       
+
+        <!-- <iframe class="absolute inset-0 w-full h-full object-cover" src="https://www.youtube.com/embed/_hhcA0-8Dt8?autoplay=1&mute=1&loop=1&playlist=_hhcA0-8Dt8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <!-- <img src="{% static '/images/over.jpeg.html" alt="Overlay" class="absolute inset-0 w-[100%] h-[100%] object-cover mix-blend-multiply" /> -->
+        <div class="typewriter flex items-center justify-center h-full relative z-10">
+            <h1 class="md:text-5xl text-2xl font-bold" style="color: #BBA085;">Transform Your Space</h1>
+        </div>
+    </header>
+
+
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Our Services</h2>
+        <!-- Include Swiper styles -->
+
+<!-- Include Swiper styles -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<div class="swiper-container relative mx-auto">
+    <div class="swiper-wrapper">
+        <!-- Service 1: Aluminium Fabrication -->
+        <div class="swiper-slide">
+            <a class="block" href="single_product.html">
+                <div class="service-card">
+                    <img src="./images/aluminiumfab.png" alt="Aluminium Fabrication" class="service-image">
+                    <h3 class="service-title">Aluminium Fabrication</h3>
+                    <p class="service-description">Custom aluminium solutions for various applications including windows, doors, and more.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Service 2: Curtain Services -->
+        <div class="swiper-slide">
+            <a class="block" href="service_detail.html">
+                <div class="service-card">
+                    <img src="./images/Curtain Services.png" alt="Curtain Services" class="service-image">
+                    <h3 class="service-title">Curtain Services</h3>
+                    <p class="service-description">Professional curtain installation and customization to enhance your interiors.</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="swiper-slide">
+            <a class="block" href="service_detail.html">
+                <div class="service-card">
+                    <img src="./images/gypsum-board-ceiling-design-1024.png" alt="Gypsum Board Installation" class="service-image">
+                    <h3 class="service-title">Gypsum Board Installation</h3>
+                    <p class="service-description">Expert installation of gypsum boards for smooth and elegant finishes.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Service 4: Glass Works -->
+        <div class="swiper-slide">
+            <a class="block" href="service_detail.html">
+                <div class="service-card">
+                    <img src="./images/glass.png" alt="Glass Works" class="service-image">
+                    <h3 class="service-title">Glass Works</h3>
+                    <p class="service-description">Quality glass solutions for windows, doors, and decorative elements.</p>
+                </div>
+            </a>
+        </div>
+        
+     <!-- Service 1: Aluminium Fabrication -->
+     <div class="swiper-slide">
+        <a class="block" href="service_detail.html">
+            <div class="service-card">
+                <img src="./images/cun.png" alt="Aluminium Fabrication" class="service-image">
+                <h3 class="service-title">Interior Design Consultation</h3>
+                <p class="service-description">Custom aluminium solutions for various applications including windows, doors, and more.</p>
+            </div>
+        </a>
+    </div>
+    </div>
+
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+<!-- Include Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 3000, // Auto-slide every 3 seconds
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+            },
+        },
+    });
+</script>
+
+<style>
+    /* Container */
+    /* Ensure Swiper container does not have unintended margin */
+.swiper-container {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+
+    /* Slide */
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Card styling */
+    .service-card {
+        background-color: white;
+        padding: 1.5rem;
+        width: 280px;
+        height: 350px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+    
+    .service-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .service-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+    .service-description {
+        font-size: 0.95rem;
+        color: #666;
+    }
+
+  
+/* Customize navigation buttons for smaller screens */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 25px;
+    height: 25px;
+    color: #333;
+    transform: translateY(-10px);
+}
+
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 16px; /* Reduce arrow icon size */
+    }
+
+    /* Optional: Style the buttons to fit design */
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+        color: #6b46c1; /* Change color on hover */
+    }
+
+
+    .swiper-pagination-bullet-active {
+        background-color: #6b46c1; /* Custom color for active bullet */
+    }
+
+    .swiper-button-next {
+            right: -10px;
+        }
+
+        .swiper-button-prev {
+            left: -10px;
+        }
+</style>
+
+
+
+        
+    </section>
+
+    
+
+    <section id="products" class="py-20 px-4 bg-gradient-to-b from-blue-100 via-purple-100 to-pink-100">
+        <h2 class="text-4xl font-bold text-center mb-12 text-purple-800">Our Projects</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            <a class="block" href="single_product.html">
+                <div class="group relative bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl h-full">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="./images/Chic Office Space.png" alt="Modern Table Lamp" class="w-full h-full object-cover transition-transform transform group-hover:scale-110">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="text-lg font-bold text-gray-800 transition-colors group-hover:text-purple-600">Chic Office Space</h3>
+                        <p class="text-sm text-gray-500 mb-4">A sleek and stylish lamp that enhances the ambiance of any room.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-yellow-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 .587l3.668 7.431 8.2 1.191-5.933 5.784 1.4 8.167L12 18.897l-7.335 3.863 1.4-8.167L.132 9.209l8.2-1.191z"/>
+                                </svg>
+                                <span class="ml-1">4.8 / 5.0</span>
+                            </div>
+                            <p class="text-sm font-semibold text-gray-700">Delivery: 3-5 days</p>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm font-bold text-gray-600"><span class="text-purple-600">Category:</span> Lighting</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        
+            <!-- Product 2 -->
+            <a class="block" href="single_product.html">
+                <div class="group relative bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl h-full">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="./images/Contemporary Workspace.png" alt="Luxury Sofa Set" class="w-full h-full object-cover transition-transform transform group-hover:scale-110">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="text-lg font-bold text-gray-800 transition-colors group-hover:text-purple-600">Contemporary Workspace</h3>
+                        <p class="text-sm text-gray-500 mb-4">A comfortable and elegant sofa set perfect for modern living rooms.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-yellow-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 .587l3.668 7.431 8.2 1.191-5.933 5.784 1.4 8.167L12 18.897l-7.335 3.863 1.4-8.167L.132 9.209l8.2-1.191z"/>
+                                </svg>
+                                <span class="ml-1">4.5 / 5.0</span>
+                            </div>
+                            <p class="text-sm font-semibold text-gray-700">Delivery: 5-7 days</p>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm font-bold text-gray-600"><span class="text-purple-600">Category:</span> Furniture</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        
+            <!-- Product 3 -->
+            <a class="block" href="single_product.html">
+                <div class="group relative bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl h-full">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="./images/Cozy Bedroom.png" alt="Abstract Wall Art" class="w-full h-full object-cover transition-transform transform group-hover:scale-110">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="text-lg font-bold text-gray-800 transition-colors group-hover:text-purple-600">Cozy Bedroom</h3>
+                        <p class="text-sm text-gray-500 mb-4">A stunning piece of art to add a modern touch to your walls.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-yellow-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 .587l3.668 7.431 8.2 1.191-5.933 5.784 1.4 8.167L12 18.897l-7.335 3.863 1.4-8.167L.132 9.209l8.2-1.191z"/>
+                                </svg>
+                                <span class="ml-1">4.7 / 5.0</span>
+                            </div>
+                            <p class="text-sm font-semibold text-gray-700">Delivery: 2-4 days</p>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm font-bold text-gray-600"><span class="text-purple-600">Category:</span> Art</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        
+            <!-- Product 4 -->
+            <a class="block" href="single_product.html">
+                <div class="group relative bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl h-full">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="./images/25_Small_Powder_Bathroom_Ideas.png" alt="Designer Rug" class="w-full h-full object-cover transition-transform transform group-hover:scale-110">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="text-lg font-bold text-gray-800 transition-colors group-hover:text-purple-600">Stylish Bathroom</h3>
+                        <p class="text-sm text-gray-500 mb-4">A plush and stylish rug that adds warmth to any room.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-yellow-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 .587l3.668 7.431 8.2 1.191-5.933 5.784 1.4 8.167L12 18.897l-7.335 3.863 1.4-8.167L.132 9.209l8.2-1.191z"/>
+                                </svg>
+                                <span class="ml-1">4.6 / 5.0</span>
+                            </div>
+                            <p class="text-sm font-semibold text-gray-700">Delivery: 4-6 days</p>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm font-bold text-gray-600"><span class="text-purple-600">Category:</span> Textiles</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        </div>
+    </section>
+    
+    
+
+    <section class="bg-gradient-to-r from-purple-600 to-blue-500 py-12 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-white mb-4 animate__animated animate__fadeInDown">Discover Your Interior Design Style</h2>
+            <p class="text-lg text-white mb-8 animate__animated animate__fadeInUp">Take our fun quiz to find out which design style fits your personality best!</p>
+            <a href="quiz.html" class="inline-block bg-white text-purple-600 py-3 px-8 rounded-full text-lg font-semibold hover:bg-purple-500 hover:text-white transition-all duration-300 shadow-lg transform hover:scale-110 animate__animated animate__pulse">
+                Start the Quiz
+            </a>
+        </div>
+    </section>
+    
+
+    <section id="testimonials" class="py-20 px-10 bg-gradient-to-r from-green-100 to-blue-100">
+        <h2 class="text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
+        <div class="flex flex-col items-center">
+            <blockquote class="bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
+                <p class="italic">"I had an amazing experience working with this team! Their dedication and professionalism made all the difference in our project."</p>
+                <footer class="mt-4 font-semibold">— Priya Sharma</footer>
+                <p>Project Manager</p>
+                <p class="text-yellow-500">October 31, 2024</p>
+            </blockquote>
+            
+            
+            
+            <div class="text-center mt-5">
+                <a href="testimonials.html" class="inline-block px-6 py-3 text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                    View All Testimonials
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+        <section id="contact" class="py-20 px-10 bg-gray-50">
+            <h2 class="text-4xl font-extrabold text-center text-blue-600 mb-10 animate__animated animate__fadeInDown">
+                We’d Love to Hear From You
+            </h2>
+            
+            <!-- Contact Form with Animation -->
+            <form id="contact-form" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 animate__animated animate__fadeInUp" 
+                action="{% url 'web:send_message' %}" method="POST" onsubmit="showThankYouMessage(event)">
+                
+                <!-- Name Input -->
+                <div class="relative mb-6">
+                    <input type="text" placeholder=" " name="name" class="peer w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 transition duration-300" required>
+                    <label class="absolute text-xl left-2 -top-3 text-gray-500 transition-all duration-300 transform scale-75 origin-left peer-placeholder-shown:scale-100 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:left-2 peer-focus:text-blue-600">Name</label>
+                </div>
+                
+                <!-- Email Input -->
+                <div class="relative mb-6">
+                    <input type="email" placeholder=" " name="email" class="peer w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-purple-600 transition duration-300" required>
+                    <label class="absolute text-xl left-2 -top-3 text-gray-500 transition-all duration-300 transform scale-75 origin-left peer-placeholder-shown:scale-100 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:left-2 peer-focus:text-purple-600">Email</label>
+                </div>
+                
+                <!-- Message Textarea -->
+                <div class="relative mb-6">
+                    <textarea name="message" placeholder=" " class="peer w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-pink-600 transition duration-300" rows="4" required></textarea>
+                    <label class="absolute text-xl left-2 -top-3 text-gray-500 transition-all duration-300 transform scale-75 origin-left peer-placeholder-shown:scale-100 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:left-2 peer-focus:text-pink-600">Message</label>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-blue-600 text-white p-4 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+                    Send Message
+                </button>
+            </form>
+        
+            <!-- Thank You Message Div -->
+            <div id="thank-you-message" class="text-center bg-white rounded-lg shadow-lg p-8 max-w-md w-full transform transition-transform duration-500 hover:scale-105 m-auto mt-4 hidden animate__animated animate__fadeIn">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800">🎉 Thank You for Your Message!</h2>
+                <p class="text-lg mb-6 text-gray-700">We will get back to you as soon as possible.</p>
+            </div>
+        </section>
+        
+        <script>
+            function showThankYouMessage(event) {
+                event.preventDefault(); // Prevent the default form submission
+                
+                // Optionally, you can add your AJAX request here for form submission
+                
+                // Hide the contact form
+                const form = document.getElementById('contact-form');
+                form.classList.add('hidden'); // Hide the form
+                
+                // Show the thank-you message
+                const thankYouMessage = document.getElementById('thank-you-message');
+                thankYouMessage.classList.remove('hidden'); // Remove hidden class
+                
+                // Optionally, reset the form inputs
+                form.reset(); // Clear the form inputs
+                
+                // You can also scroll to the thank-you message if desired
+                thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+            }
+        </script>
+        <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-4">
+        <div class="container mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold">Zain Interior</h3>
+                    <p class="mt-2">Transforming spaces into beautiful environments. Contact us for bespoke design solutions.</p>
+                </div>
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold">Quick Links</h3>
+                    <ul class="mt-2">
+                        <li><a href="#portfolio" class="hover:underline">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:underline">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold">Follow Us</h3>
+                    <div class="mt-2">
+                        <h4><a href="https://facebook.com" target="_blank" class="mx-2 hover:text-blue-400">Facebook</a></h4>
+                        <h4><a href="https://instagram.com" target="_blank" class="mx-2 hover:text-pink-400">Instagram</a></h4>
+                        <h4><a href="https://linkedin.com" target="_blank" class="mx-2 hover:text-blue-600">LinkedIn</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-6 py-3 bg-gray-900">
+            <p>&copy; 2024 Interior Design Company. All rights reserved.</p>
+        </div>
+    </footer>
+<style>
+    .typewriter h1 {
+    /* font-family: 'Courier', monospace; */
+    overflow: hidden; /* Ensures the text doesn't show outside of its container */
+    border-right: 0.15em solid black; /* Cursor effect */
+    white-space: nowrap; /* Keeps the text on a single line */
+    margin: 0 auto; /* Centers the text */
+    letter-spacing: 0.15em; /* Space between letters */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    /* Typing effect */
+    @keyframes typing {
+    from { width: 0; }
+    to { width: 50%; }
+    }
+
+    /* Blinking caret effect */
+    @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+    }
+
+
+    .video-container {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Set an appropriate height */
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the container */
+        }
+
+
+        /* .custom-swiper-button {
+            color: #b3865a; 
+            width: 22px; 
+            height: 22px;
+            border-radius: 50%; 
+            background-color: rgba(194, 187, 187, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .custom-swiper-button:hover {
+            background-color: #b3865a;
+            color: #ffffff; 
+        }
+
+        .custom-swiper-button::after {
+            font-size: 14px;
+        }
+
+        
+        .swiper-button-next {
+            right: 10px;
+        }
+
+        .swiper-button-prev {
+            left: 10px;
+        }
+
+        .swiper-pagination {
+            top: 398px !important; 
+        }
+
+        .swiper-slide img {
+        } */
+        
+        
+      
+</style>
+
+
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <!-- Contact Section -->
+    
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>

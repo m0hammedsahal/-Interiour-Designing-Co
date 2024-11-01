@@ -21,7 +21,7 @@
                 <!-- Thumbnail Images -->
                 <div class="grid grid-cols-5 gap-1">
                     {% for image in product.images.all %}
-                        <img onclick="changeImage('{{ image.image.url }}')" src="{{ image.image.url }}" alt="{{ product.name }}" class="thumbnail object-cover rounded-lg cursor-pointer">
+                        <img onmouseover="changeImage('{{ image.image.url }}')" src="{{ image.image.url }}" alt="{{ product.name }}" class="thumbnail object-cover rounded-lg cursor-pointer">
                     {% endfor %}
                 </div>
             </div>

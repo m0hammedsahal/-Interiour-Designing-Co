@@ -2,23 +2,56 @@
 {% load static %}
 {% block container %}
 
+<style>
+@keyframes fadeInSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px); /* Starts from the right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Ends in the correct position */
+  }
+}
 
+@keyframes fadeInSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px); /* Starts from the left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Ends in the correct position */
+  }
+}
+
+.animate-fade-slide-right {
+  animation: fadeInSlideRight 0.5s ease forwards; /* Animation for coming from right */
+}
+
+.animate-fade-slide-left {
+  animation: fadeInSlideLeft 0.5s ease forwards; /* Animation for coming from left */
+}
+
+</style>
 <!-- Main Layout -->
 <section id="main-content" class="py-8 px-5 bg-gray-50">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
 
 
         <!-- Filter Toggle Button (only visible on small screens) -->
-        <button id="filterToggleBtn" class="flex px-1 py-0.5 bg-black bg-opacity-40 text-white rounded-md shadow-md hover:bg-purple-800 fixed top-16 left-4 z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" style="transform: rotate(90deg);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button id="filterToggleBtn" name="filter_toggle" class="flex px-1 py-44 bg-black bg-opacity-40 text-white rounded-md shadow-md hover:bg-purple-800 fixed top-20 left-0 z-50" style="writing-mode: vertical-rl;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-2" style="transform: rotate(90deg);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4 4 4-4"/>
             </svg>
             
-            Show Filters
+            <p class="text-xl">
+                Show Filters
+            </p>
         </button>
         <!-- Filter Section (Left Sidebar) -->
-         
+        
         <aside id="filters" class="col-span-1 bg-white shadow-lg rounded-lg p-4">
             <form method="GET" action="">
                 <h2 class="text-xl font-semibold text-purple-800 mb-4">Filter Products</h2>
@@ -83,7 +116,7 @@
                         <div class="group relative bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl h-full">
                             <div class="relative overflow-hidden h-48">
                                 <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="w-full h-full object-cover transition-transform transform group-hover:scale-110">
-                                <span class="absolute top-0 left-0 bg-purple-600 text-white text-xs px-2 py-1 rounded-br-lg">{{ product.discount }}% OFF</span>
+                                <!-- <span class="absolute top-0 left-0 bg-purple-600 text-white text-xs px-2 py-1 rounded-br-lg">{{ product.discount }}% OFF</span> -->
                             </div>
                             <div class="p-4 bg-white">
                                 <h3 class="text-lg font-bold text-gray-800 transition-colors group-hover:text-purple-600">{{ product.name }}</h3>
@@ -177,17 +210,58 @@
             if (filters.style.display === 'block') {
                 filters.style.display = 'none';
                 filterToggleBtn.textContent = 'Show Filters';
+
+                filterToggleBtn.classList.remove('animate-fade-slide-right');
+                filterToggleBtn.classList.add('animate-fade-slide-left');
+
+                filters.classList.add('animate-fade-slide-left'); 
+                filters.classList.remove('animate-fade-slide-right');
+                
+                parent.classList.remove('animate-fade-slide-right');
+                parent.classList.add('animate-fade-slide-left');
+
+                filterToggleBtn.style.writingMode = "vertical-rl";
                 
                 main.classList.add('col-span-4');
                 parent.classList.add('md:grid-cols-4');
 
+                filterToggleBtn.classList.add('py-44');
+                filterToggleBtn.classList.remove('py-1');
+
                 main.classList.remove('col-span-3');
                 parent.classList.remove('md:grid-cols-3');
+
+                filterToggleBtn.classList.add('left-0');
+                filterToggleBtn.classList.remove('left-64');
+
+                filterToggleBtn.classList.add('top-20');
+                filterToggleBtn.classList.remove('top-16');
                 
 
             } else {
                 filters.style.display = 'block';
+                filters.classList.add("animate-fade-slide");
                 filterToggleBtn.textContent = 'Hide';
+
+                filterToggleBtn.classList.remove('animate-fade-slide-left');
+                filterToggleBtn.classList.add('animate-fade-slide-right');
+
+                filterToggleBtn.classList.add('py-1');
+                filterToggleBtn.classList.remove('py-44');
+
+                filterToggleBtn.classList.remove('left-0');
+                filterToggleBtn.classList.add('left-64');
+
+                filterToggleBtn.classList.remove('top-20');
+                filterToggleBtn.classList.add('top-16');
+
+                parent.classList.remove('animate-fade-slide-left');
+                parent.classList.add('animate-fade-slide-right');
+
+                filters.classList.remove('animate-fade-slide-right'); 
+                filters.classList.add('animate-fade-slide-left'); 
+
+                filterToggleBtn.style.writingMode = "horizontal-tb";
                 
                 main.classList.add('col-span-3');
                 parent.classList.add('md:grid-cols-3');
@@ -203,8 +277,8 @@
         const minPrice = document.getElementById('priceRangeMin').value;
         const maxPrice = document.getElementById('priceRangeMax').value;
         
-        document.getElementById('minPrice').innerText = `%${minPrice}`;
-        document.getElementById('maxPrice').innerText = `%${maxPrice}`;
+        document.getElementById('minPrice').innerText = `${minPrice}%`;
+        document.getElementById('maxPrice').innerText = `${maxPrice}%`;
     }
 
     // Attach the updatePrice function to the 'input' event of both range inputs

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder Color Example</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #333; /* Dark text */
+            padding: 20px;
+        }
+
+        /* Style for input and textarea */
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        /* Change the color of placeholder text */
+        input::placeholder,
+        textarea::placeholder {
+            color: #c61313; /* Custom color for placeholder */
+            opacity: 1; /* Ensure full opacity in Firefox */
+        }
+
+        /* Optional: Style for focused input */
+        input:focus::placeholder,
+        textarea:focus::placeholder {
+            color: #eb1414; /* Change color when input is focused */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Custom Placeholder Color Example</h1>
+    <input type="text" placeholder="Enter your name">
+    <textarea placeholder="Enter your message"></textarea>
+</body>
+</html>

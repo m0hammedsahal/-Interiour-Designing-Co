@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <style>
         /* Team member card hover animation */
         .team-member:hover {
@@ -36,6 +40,25 @@
             background-color: #4f46e5;
             transition: all 0.3s ease;
         }
+
+        /* Centering and spacing of Swiper */
+        .mySwiper {
+        width: 80%; /* Adjust width as per the desired space */
+        margin: 0 auto; /* Center the slider */
+        padding: 20px 0; /* Optional padding for top/bottom spacing */
+        }
+
+        .swiper-slide {
+        background: #ddd; /* Slide background color */
+        border-radius: 8px; /* Rounded corners */
+        text-align: center;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px; /* Height of each slide */
+        }
+
     </style>
 </head>
 <body class="bg-gradient-to-br from-green-50 via-blue-50 to-indigo-50 min-h-screen">
@@ -60,7 +83,7 @@
         <div class="container mx-auto px-6 lg:px-12 text-center lg:text-left">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Image of the company -->
-                <img src="/static/images/Modern building.jpeg" alt="Our Story" class="rounded-lg shadow-md h-[400px] w-full">
+                <img src="/static/web/images/Modern building.jpeg" alt="Our Story" class="rounded-lg shadow-md h-[400px] w-full">
 
                 <!-- Story content -->
                 <div>
@@ -119,12 +142,52 @@
         </div>
     </section>
 
+    <section>
+        <!-- Swiper Slider HTML -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <!-- Add more slides as needed -->
+            </div>
+            <!-- Pagination and Navigation if needed -->
+            <!-- <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+        </div>
+    </section>
+
     <!-- Footer Section -->
     <footer class="bg-gray-800 py-8">
         <div class="container mx-auto text-center text-white">
             <p>&copy; 2024 Interior Design Co. All Rights Reserved.</p>
         </div>
     </footer>
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const swiper = new Swiper('.mySwiper', {
+            slidesPerView: 1,       // Show one slide at a time
+            spaceBetween: 30,       // Space on the left and right of each slide
+            centeredSlides: true,
+            loop: true,             // Infinite loop
+            autoplay: {
+              delay: 3000,          // Slide delay in ms (3000ms = 3 seconds)
+              disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          });
+        });
+      </script>
+      
+      
 </body>
 </html>

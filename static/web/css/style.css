@@ -7,3 +7,18 @@
 .dropdown:hover > a {
     color: #f6b83b; /* Tailwind's blue-600 */
 }
+
+
+
+  /* Change the color of placeholder text */
+  input::placeholder,
+  textarea::placeholder {
+      color: #ed1818; /* Change this to your desired color */
+      opacity: 1; /* Firefox lowers the opacity by default */
+  }
+
+  /* Optional: Style for focused input */
+  input:focus::placeholder,
+  textarea:focus::placeholder {
+      color: #e02222; /* Change color when input is focused */
+  }

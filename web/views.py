@@ -75,7 +75,9 @@ def gallery(request):
     min_price = request.GET.get('min_price', 0)
     max_price = request.GET.get('max_price', 1000)
 
-    products = Product.objects.all()
+    filter_toggle_btn = request.GET.get('filter_toggle')
+
+    products = Product.objects.all()    
     categories = Category.objects.all()
 
     # Filter by search query
@@ -90,7 +92,7 @@ def gallery(request):
     products = products.filter(discount__gte=min_price, discount__lte=max_price)
 
     # Pagination
-    paginator = Paginator(products, 6)  # Show 3 products per page
+    paginator = Paginator(products, 8 if filter_toggle_btn else 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)  # Get the page object
 

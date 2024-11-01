@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Style Quiz</title>
+    <link class="rounded-full" rel="icon" href="./images/zainlogo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Quiz Container -->
+    <div class="container mx-auto py-12">
+        <h1 class="text-4xl font-bold text-center mb-8">Find Your Interior Design Style</h1>
+
+        <div id="quiz" class="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
+            <!-- Question Section -->
+            <div id="quiz-container">
+                <!-- Question Image -->
+                <div class="flex justify-center mb-6 w-">
+                    <img id="question-image" src="" alt="Question Image" class="w-64 h-64 object-cover rounded-lg">
+                </div>
+
+                <h2 id="question" class="text-2xl font-semibold mb-6">Question will go here</h2>
+
+                <div id="answers" class="space-y-4">
+                    <!-- Options will be injected here dynamically -->
+                </div>
+            </div>
+
+            <!-- Result Section (Hidden initially) -->
+            <div id="result-container" class="hidden text-center">
+                <h2 class="text-3xl font-semibold">Your Design Style is:</h2>
+                <p id="result" class="text-2xl font-bold text-purple-600 mt-4"></p>
+                <div class="mt-6">
+                    <img id="result-image" src="" alt="Result Image" class="w-1/2 h-auto mx-auto rounded-lg">
+                </div>
+                <a href="/" class="mt-8 inline-block bg-purple-600 text-white py-2 px-6 rounded-full hover:bg-purple-700 transition-all">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz Data with Question Images
+        const quizData = [
+            {
+                question: "What's your preferred color palette?",
+                img: "/static/web/images/color palette.jpeg", // Keep this if you have a specific image for the question
+                answers: {
+                    "Neutral & Earthy": { style: "Modern", img: "/static/web/images/Neutral & Earthy.jpeg" },
+                    "Bold & Vibrant": { style: "Eclectic", img: "/static/web/images/Bold & Vibrant.jpeg" },
+                    "Soft Pastels": { style: "Scandinavian", img: "/static/web/images/Soft Pastels.jpeg" },
+                    "Dark & Moody": { style: "Industrial", img: "/static/web/images/Dark & Moody.jpeg" }
+                }
+            },
+            {
+                question: "How would you describe your ideal furniture?",
+                img: "/static/web/images/furniture.jpeg", // Keep this if you have a specific image for the question
+                answers: {
+                    "Clean & Minimal": { style: "Scandinavian", img: "/static/web/images/Clean & Minimal.jpeg" },
+                    "Vintage & Unique": { style: "Eclectic", img: "/static/web/images/Vintage & Unique.jpeg" },
+                    "Sleek & Functional": { style: "Modern", img: "/static/web/images/Sleek & Functional.jpeg" },
+                    "Raw & Rugged": { style: "Industrial", img: "/static/web/images/Raw & Rugged.jpeg" }
+                }
+            },
+            {
+                question: "What type of decor do you prefer?",
+                img: "/static/web/images/type of decor.jpeg", // Keep this if you have a specific image for the question
+                answers: {
+                    "Natural Textures & Greenery": { style: "Scandinavian", img: "/static/web/images/Natural Textures & Greenery.jpeg" },
+                    "Abstract Art & Statement Pieces": { style: "Eclectic", img: "/static/web/images/Abstract Art & Statement Pieces.jpeg" },
+                    "Geometric Patterns & Clean Lines": { style: "Modern", img: "/static/web/images/Geometric Patterns & Clean Lines.jpeg" },
+                    "Exposed Brick & Metal": { style: "Industrial", img: "/static/web/images/Exposed Brick & Metal.jpeg" }
+                }
+            }
+        ];
+
+        let currentQuestion = 0;
+        const styleScores = {
+            Modern: 0,
+            Eclectic: 0,
+            Scandinavian: 0,
+            Industrial: 0
+        };
+
+        // Load question
+        function loadQuestion() {
+            const quizContainer = document.getElementById('quiz-container');
+            const questionElement = document.getElementById('question');
+            const questionImageElement = document.getElementById('question-image');
+            const answersElement = document.getElementById('answers');
+
+            // Clear previous answers
+            answersElement.innerHTML = '';
+
+            // Set question text and image
+            const questionData = quizData[currentQuestion];
+            questionElement.textContent = questionData.question;
+            questionImageElement.src = questionData.img;
+
+            // Create answer buttons with images
+            Object.keys(questionData.answers).forEach(answer => {
+                const answerData = questionData.answers[answer];
+
+                const button = document.createElement('button');
+                button.classList.add('flex', 'items-center', 'space-x-4', 'w-full', 'bg-purple-600', 'text-white', 'py-3', 'px-2', 'rounded-lg', 'hover:bg-purple-700', 'transition-all');
+
+                const img = document.createElement('img');
+                img.src = answerData.img;
+                img.alt = answer;
+                img.classList.add('w-16', 'h-16', 'rounded-md');
+
+                const text = document.createElement('span');
+                text.textContent = answer;
+
+                button.appendChild(img);
+                button.appendChild(text);
+
+                button.addEventListener('click', () => selectAnswer(answerData.style));
+                answersElement.appendChild(button);
+            });
+        }
+
+        // Handle answer selection
+        function selectAnswer(style) {
+            styleScores[style]++;
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        // Show result based on scores
+        function showResult() {
+            const quizContainer = document.getElementById('quiz-container');
+            const resultContainer = document.getElementById('result-container');
+            const resultElement = document.getElementById('result');
+            const resultImageElement = document.getElementById('result-image');
+
+            // Determine the style with the highest score
+            let topStyle = Object.keys(styleScores).reduce((a, b) => styleScores[a] > styleScores[b] ? a : b);
+
+            // Show result
+            resultElement.textContent = topStyle;
+
+            // Set result image based on style
+            switch (topStyle) {
+                case "Modern":
+                    resultImageElement.src = "/static/web/images/ModernStyle.jpeg"; // Path to your modern style image
+                    break;
+                case "Eclectic":
+                    resultImageElement.src = "/static/web/images/EclecticStyle.jpeg"; // Path to your eclectic style image
+                    break;
+                case "Scandinavian":
+                    resultImageElement.src = "/static/web/images/ScandinavianStyle.jpeg"; // Path to your Scandinavian style image
+                    break;
+                case "Industrial":
+                    resultImageElement.src = "/static/web/images/IndustrialStyle.jpeg"; // Path to your industrial style image
+                    break;
+            }
+
+            quizContainer.classList.add('hidden');
+            resultContainer.classList.remove('hidden');
+        }
+
+        // Initialize quiz
+        loadQuestion();
+    </script>
+</body>
+</html>
