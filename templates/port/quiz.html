@@ -45,32 +45,32 @@
         const quizData = [
             {
                 question: "What's your preferred color palette?",
-                img: "/static/web/images/color palette.jpeg", // Keep this if you have a specific image for the question
+                img: "./images/color palette.jpeg", // Keep this if you have a specific image for the question
                 answers: {
-                    "Neutral & Earthy": { style: "Modern", img: "/static/web/images/Neutral & Earthy.jpeg" },
-                    "Bold & Vibrant": { style: "Eclectic", img: "/static/web/images/Bold & Vibrant.jpeg" },
-                    "Soft Pastels": { style: "Scandinavian", img: "/static/web/images/Soft Pastels.jpeg" },
-                    "Dark & Moody": { style: "Industrial", img: "/static/web/images/Dark & Moody.jpeg" }
+                    "Neutral & Earthy": { style: "Modern", img: "./images/Neutral & Earthy.jpeg" },
+                    "Bold & Vibrant": { style: "Eclectic", img: "./images/Bold & Vibrant.jpeg" },
+                    "Soft Pastels": { style: "Scandinavian", img: "./images/Soft Pastels.jpeg" },
+                    "Dark & Moody": { style: "Industrial", img: "./images/Dark & Moody.jpeg" }
                 }
             },
             {
                 question: "How would you describe your ideal furniture?",
-                img: "/static/web/images/furniture.jpeg", // Keep this if you have a specific image for the question
+                img: "./images/furniture.jpeg", // Keep this if you have a specific image for the question
                 answers: {
-                    "Clean & Minimal": { style: "Scandinavian", img: "/static/web/images/Clean & Minimal.jpeg" },
-                    "Vintage & Unique": { style: "Eclectic", img: "/static/web/images/Vintage & Unique.jpeg" },
-                    "Sleek & Functional": { style: "Modern", img: "/static/web/images/Sleek & Functional.jpeg" },
-                    "Raw & Rugged": { style: "Industrial", img: "/static/web/images/Raw & Rugged.jpeg" }
+                    "Clean & Minimal": { style: "Scandinavian", img: "./images/Clean & Minimal.jpeg" },
+                    "Vintage & Unique": { style: "Eclectic", img: "./images/Vintage & Unique.jpeg" },
+                    "Sleek & Functional": { style: "Modern", img: "./images/Sleek & Functional.jpeg" },
+                    "Raw & Rugged": { style: "Industrial", img: "./images/Raw & Rugged.jpeg" }
                 }
             },
             {
                 question: "What type of decor do you prefer?",
-                img: "/static/web/images/type of decor.jpeg", // Keep this if you have a specific image for the question
+                img: "./images/type of decor.jpeg", // Keep this if you have a specific image for the question
                 answers: {
-                    "Natural Textures & Greenery": { style: "Scandinavian", img: "/static/web/images/Natural Textures & Greenery.jpeg" },
-                    "Abstract Art & Statement Pieces": { style: "Eclectic", img: "/static/web/images/Abstract Art & Statement Pieces.jpeg" },
-                    "Geometric Patterns & Clean Lines": { style: "Modern", img: "/static/web/images/Geometric Patterns & Clean Lines.jpeg" },
-                    "Exposed Brick & Metal": { style: "Industrial", img: "/static/web/images/Exposed Brick & Metal.jpeg" }
+                    "Natural Textures & Greenery": { style: "Scandinavian", img: "./images/Natural Textures & Greenery.jpeg" },
+                    "Abstract Art & Statement Pieces": { style: "Eclectic", img: "./images/Abstract Art & Statement Pieces.jpeg" },
+                    "Geometric Patterns & Clean Lines": { style: "Modern", img: "./images/Geometric Patterns & Clean Lines.jpeg" },
+                    "Exposed Brick & Metal": { style: "Industrial", img: "./images/Exposed Brick & Metal.jpeg" }
                 }
             }
         ];
@@ -149,16 +149,16 @@
             // Set result image based on style
             switch (topStyle) {
                 case "Modern":
-                    resultImageElement.src = "/static/web/images/ModernStyle.jpeg"; // Path to your modern style image
+                    resultImageElement.src = "./images/ModernStyle.jpeg"; // Path to your modern style image
                     break;
                 case "Eclectic":
-                    resultImageElement.src = "/static/web/images/EclecticStyle.jpeg"; // Path to your eclectic style image
+                    resultImageElement.src = "./images/EclecticStyle.jpeg"; // Path to your eclectic style image
                     break;
                 case "Scandinavian":
-                    resultImageElement.src = "/static/web/images/ScandinavianStyle.jpeg"; // Path to your Scandinavian style image
+                    resultImageElement.src = "./images/ScandinavianStyle.jpeg"; // Path to your Scandinavian style image
                     break;
                 case "Industrial":
-                    resultImageElement.src = "/static/web/images/IndustrialStyle.jpeg"; // Path to your industrial style image
+                    resultImageElement.src = "./images/IndustrialStyle.jpeg"; // Path to your industrial style image
                     break;
             }
 

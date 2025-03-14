@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        /* Custom styles for Swiper slider */
+        .swiper-pagination-bullet {
+            background: #b3865a;
+        }
+        .swiper-pagination-bullet-active {
+            background: #fff;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<!-- Navigation Bar -->
+<header class="head shadow-md fixed w-full z-20 bg-black bg-opacity-30">
+    <nav class="container mx-auto flex justify-between items-center p-5 text-white">
+        <a href="index.html"><h1 class="md:text-3xl text-xl font-bold" style="color: #b3865a;">Zain Interior</h1></a>
+        <button id="mobile-menu-button" class="text-white focus:outline-none md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+        <ul class="hidden md:flex space-x-6">
+            <li><a href="services.html" class="hover:text-blue-600 text-xl">Services</a></li>
+            <li><a href="gallery.html" class="hover:text-blue-600 text-xl">Gallery</a></li>
+            <li><a href="about_us.html" class="hover:text-blue-600 text-xl">About</a></li>
+            <li><a href="contact.html" class="hover:text-blue-600 text-xl">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="mobile-menu" class="absolute top-16 left-0 w-full bg-white bg-opacity-20 hidden shadow-lg z-30 md:hidden">
+        <ul class="flex flex-col space-y-2 p-4">
+            <li><a href="services.html" class="block text-xl hover:text-blue-600">Services</a></li>
+            <li><a href="gallery.html" class="block text-xl hover:text-blue-600">Gallery</a></li>
+            <li><a href="about_us.html" class="block text-xl hover:text-blue-600">About</a></li>
+            <li><a href="contact.html" class="block text-xl hover:text-blue-600">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- JavaScript for Mobile Menu Toggle -->
+<script>
+    document.getElementById('mobile-menu-button').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+</script>
+
+<!-- Hero Section with Swiper Slider -->
+<section class="relative h-screen">
+    <div class="swiper-container h-full">
+        <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide relative bg-cover bg-center" style="background-image: url('./images/aluminium3.png');">
+                <div class="absolute inset-0 bg-black opacity-40"></div>
+                <div class="relative z-10 flex flex-col items-center justify-center text-center text-white h-full px-6 space-y-4">
+                    <h1 class="text-5xl md:text-6xl font-extrabold">Aluminium Fabrication</h1>
+                    <p class="text-xl md:text-2xl max-w-2xl">Transforming interiors with elegance and luxury.</p>
+                    <a href="#contact" class="px-8 py-3 bg-yellow-500 text-black font-semibold rounded-full hover:bg-yellow-400 transition">Get in Touch</a>
+                </div>
+            </div>
+            <!-- Additional Slides -->
+            <div class="swiper-slide" style="background-image: url('./images/curtain_services.png');"></div>
+            <div class="swiper-slide" style="background-image: url('./images/glassaf.png');"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-12">
+    <div class="container mx-auto">
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Service 1 -->
+            <div class="swiper-slide">
+                <a href="single_product.html">
+                    <div class="service-card relative bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+                        <img src="./images/aluminiumfab.png" alt="Aluminium Fabrication" class="w-full h-48 object-cover opacity-80 hover:opacity-100 transition">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-50 transition duration-500"></div>
+                        <div class="service-info absolute bottom-0 left-0 p-4 text-white z-10">
+                            <h3 class="text-lg font-semibold">Aluminium Fabrication</h3>
+                            <p class="text-sm opacity-80">Custom aluminium solutions for windows, doors, and more.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Additional Services -->
+            <!-- Repeat structure for other services -->
+        </div>
+    </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: { delay: 3000 },
+        pagination: { el: '.swiper-pagination', clickable: true },
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth input focus animation */
+        .input-animate:focus {
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Button hover animation */
+        .btn-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-pink-50 to-purple-100 min-h-screen flex items-center justify-center">
+
+    <div class="container mx-auto p-8">
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="px-8 py-12">
+                
+                <!-- Heading -->
+                <h2 class="text-4xl font-bold text-center text-indigo-600 mb-6 animate-pulse">Book Your Appointment</h2>
+                <p class="text-center text-gray-600 mb-10">Fill in the details below to schedule an appointment with us.</p>
+                
+                <!-- Form -->
+                <form action="/submit-appointment" method="post" class="space-y-4">
+                    
+                    <!-- Full Name -->
+                    <div>
+                        <label for="full_name" class="block text-lg font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" class="input-animate w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" class="input-animate w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="phone" class="block text-lg font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" class="input-animate w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                
+                    <!-- Preferred Date -->
+                    <div>
+                        <label for="preferred_date" class="block text-lg font-medium text-gray-700">Preferred Date</label>
+                        <input type="date" id="preferred_date" name="preferred_date" class="input-animate w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                
+                    <!-- Preferred Time -->
+                    <!-- Preferred Time -->
+                    <div>
+                        <label for="preferred_time" class="block text-lg font-medium text-gray-700">Preferred Time</label>
+                        <select id="preferred_time" name="preferred_time" class="input-animate w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Select a time</option>
+                            <option value="9:00 AM">9:00 AM</option>
+                            <option value="10:00 AM">10:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="1:00 PM">1:00 PM</option>
+                            <option value="2:00 PM">2:00 PM</option>
+                            <option value="3:00 PM">3:00 PM</option>
+                            <option value="4:00 PM">4:00 PM</option>
+                            <option value="5:00 PM">5:00 PM</option>
+                        </select>
+                    </div>
+
+                
+                    <!-- Additional Message -->
+                    <div>
+                        <label for="message" class="block text-lg font-medium text-gray-700">Additional Message (Optional)</label>
+                        <textarea id="message" name="message" placeholder="Enter your message" class="input-animate w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-indigo-500"></textarea>
+                    </div>
+                
+                    <!-- Submit Button -->
+                    <div class="text-center mt-7">
+                        <button type="submit" class="btn-hover inline-block px-6 py-3 text-lg font-semibold text-white bg-indigo-500 rounded-full shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Book Appointment</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
